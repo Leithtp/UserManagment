@@ -1,0 +1,30 @@
+﻿<!-- Header -->
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <!-- Logo -->
+                <h1><a id="logo">Управление пользователями</a></h1>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <a asp-area="Admin" asp-action="Index" asp-controller="Home" asp-route-returnUrl="@ViewBag.returnUrl">Список пользователей</a>
+                        <a asp-area="" asp-action="Logout" asp-controller="Account" asp-route-returnUrl="@ViewBag.returnUrl">Выйти</a>
+                        <a>@User.Identity.Name</a>
+                    }
+                    else
+                    {
+                        <a asp-action="Login" asp-controller="Account" asp-route-returnUrl="@ViewBag.returnUrl">Вход</a>
+                    }
+
+
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</section>

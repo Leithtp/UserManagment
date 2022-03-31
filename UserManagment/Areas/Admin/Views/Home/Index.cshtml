@@ -1,0 +1,50 @@
+﻿@using UserManagment.Domain.Entities;
+@model List<UserManagment.Domain.Entities.UserData>
+
+@{
+
+    Layout = "_Layout";
+
+}
+<div>
+    <form asp-area="admin" asp-controller="Home" asp-action="Index" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+        <input type="button" value="Зарегистрировать" onclick="window.location.href='@Url.Action("Register", "Home")';" />
+        <table class="usersTable">
+            <caption>Список пользователей</caption>
+            <tr>
+            </tr>
+            <tr>
+                <th class="usersTable">Действие</th>
+                <th class="usersTable">Email</th>
+                <th class="usersTable">ФИО</th>
+            </tr>
+            @foreach (var user in Model)
+            {
+
+
+                <tr>
+
+                    <td class="usersTable">
+                        <input type="button" value="Редактировать" onclick="window.location.href='@Url.Action("Edit", "Home", new { id = user.Id })';" />
+                        <input type="button" value="Удалить" onclick="window.location.href='@Url.Action("Delete", "Home", new { id = user.Id })';" />
+                        @if(user.IsAdmin)
+                        {
+                            <input type="button" value="Забрать права администратора" onclick="window.location.href='@Url.Action("ToggleAdmin", "Home", new { id = user.Id })';" />
+                        }
+                        else
+                        {
+                            <input type="button" value="Сделать администратором" onclick="window.location.href='@Url.Action("ToggleAdmin", "Home", new { id = user.Id })';" />
+                        }
+
+                    </td>
+                    <td class="usersTable">@user.Email</td>
+
+                    <td class="usersTable">@user.FullName </td>
+
+
+                    
+                </tr>
+            }
+            </table>
+    </form>
+</div>

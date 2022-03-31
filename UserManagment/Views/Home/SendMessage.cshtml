@@ -1,0 +1,44 @@
+﻿@using UserManagment.Models
+@model EmailViewModel
+<div>
+    <h1>Отправка письма</h1>
+    <div class="div-box">
+        <form asp-area="" asp-controller="Home" asp-action="SendMessage" method="post">
+            
+            <table class="cellToChange">
+                <tr>
+                    <td>
+                        <label>Адрес получателя</label>
+                    </td>
+                    <td>
+                        <input type="email" class="forInput" name="Email" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Тема письма</label>
+                    </td>
+                    <td>
+                        <input class="forInput" name="Subject" />
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Текст письма</label>
+                    </td>
+                    <td>
+                        <input type="text" class="forInput" name="Text" />
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <input class="button-large" type="submit" value="Отправить" />
+        </form>
+    </div>
+</div>

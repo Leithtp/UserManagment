@@ -1,0 +1,56 @@
+﻿@using UserManagment.Domain.Entities;
+@model UserData
+@{
+
+    Layout = "_Layout";
+
+}
+
+<div>
+    <h1>Регистрация пользователя</h1>
+    <div class="div-box">
+        <form asp-area="admin" asp-controller="Home" asp-action="Register" method="post">
+            <table class="cellToChange">
+                <tr>
+                    <td>
+                        <label asp-for="Email">Email</label>
+                    </td>
+                    <td>
+                        <input class="forInput" name="Email" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Name">Имя</label>
+                    </td>
+                    <td>
+                        <input class="forInput" name="Name" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Surname">Фамилия</label>
+                    </td>
+                    <td>
+                        <input class="forInput" name="Surname" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Patronymic">Отчество</label>
+                    </td>
+                    <td>
+                        <input  class="forInput" name="Patronymic" />
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <input class="button-large" type="submit" value="Зарегистрировать" />
+        </form>
+    </div>
+</div>
